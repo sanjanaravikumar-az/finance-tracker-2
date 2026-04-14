@@ -1,0 +1,22 @@
+{
+  "api": {
+    "financetracker2": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2026-07-23T20:32:51.163Z",
+              "apiKeyExpirationDays": 100,
+              "description": "graphql"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  }
+}

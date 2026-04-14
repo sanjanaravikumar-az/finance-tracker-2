@@ -1,0 +1,20 @@
+{
+  "main": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-financetracker2-main-ecd2b-authRole",
+      "UnauthRoleArn": "arn:aws:iam::079385506759:role/amplify-financetracker2-main-ecd2b-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::079385506759:role/amplify-financetracker2-main-ecd2b-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-financetracker2-main-ecd2b-deployment",
+      "UnauthRoleName": "amplify-financetracker2-main-ecd2b-unauthRole",
+      "StackName": "amplify-financetracker2-main-ecd2b",
+      "StackId": "arn:aws:cloudformation:us-east-1:079385506759:stack/amplify-financetracker2-main-ecd2b/7baec630-3840-11f1-a4ae-0affcf2f8753",
+      "AmplifyAppId": "d3ozafyfl4kim2"
+    },
+    "categories": {
+      "api": {
+        "financetracker2": {}
+      }
+    }
+  }
+}

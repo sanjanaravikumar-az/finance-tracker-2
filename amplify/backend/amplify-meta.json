@@ -1,0 +1,44 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-financetracker2-main-ecd2b-authRole",
+      "UnauthRoleArn": "arn:aws:iam::079385506759:role/amplify-financetracker2-main-ecd2b-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::079385506759:role/amplify-financetracker2-main-ecd2b-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-financetracker2-main-ecd2b-deployment",
+      "UnauthRoleName": "amplify-financetracker2-main-ecd2b-unauthRole",
+      "StackName": "amplify-financetracker2-main-ecd2b",
+      "StackId": "arn:aws:cloudformation:us-east-1:079385506759:stack/amplify-financetracker2-main-ecd2b/7baec630-3840-11f1-a4ae-0affcf2f8753",
+      "AmplifyAppId": "d3ozafyfl4kim2"
+    }
+  },
+  "api": {
+    "financetracker2": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 100,
+              "apiKeyExpirationDate": "2026-07-23T20:32:51.163Z",
+              "description": "graphql"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "sepsn22rqzcdhapssgvpnov6du",
+        "GraphQLAPIEndpointOutput": "https://rqyd4trj3zch3bumi3ce7ksqjq.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-knb5pw3p4rfc5bii2aiuv5eox4"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apifinancetracker2"
+      },
+      "lastPushTimeStamp": "2026-04-14T20:38:37.416Z",
+      "lastPushDirHash": "vBKWxUHpn9WRIxr0cuY1IFyCR9s="
+    }
+  }
+}
