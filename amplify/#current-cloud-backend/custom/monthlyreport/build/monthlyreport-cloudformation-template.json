@@ -9,18 +9,7 @@
     "BudgetAlertTopicF20DF526": {
       "Type": "AWS::SNS::Topic",
       "Properties": {
-        "DisplayName": "Fin Tracker Budget Alerts",
-        "TopicName": {
-          "Fn::Join": [
-            "",
-            [
-              "finance-budget-alerts-",
-              {
-                "Ref": "env"
-              }
-            ]
-          ]
-        }
+        "DisplayName": "Fin Tracker Budget Alerts"
       }
     },
     "BudgetAlertTopicsanjanaravikumarazgmailcom9C5B945F": {
@@ -36,18 +25,7 @@
     "MonthlyReportTopic8D223100": {
       "Type": "AWS::SNS::Topic",
       "Properties": {
-        "DisplayName": "Finance Tracker Monthly Reports",
-        "TopicName": {
-          "Fn::Join": [
-            "",
-            [
-              "finance-monthly-reports-",
-              {
-                "Ref": "env"
-              }
-            ]
-          ]
-        }
+        "DisplayName": "Finance Tracker Monthly Reports"
       }
     },
     "MonthlyReportTopicsanjanaravikumarazgmailcomFBA75CE0": {

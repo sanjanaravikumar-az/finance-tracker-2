@@ -47,6 +47,12 @@
       "service": "Cognito"
     }
   },
+  "custom": {
+    "monthlyreport": {
+      "providerPlugin": "awscloudformation",
+      "service": "customCDK"
+    }
+  },
   "storage": {
     "s310def45a": {
       "dependsOn": [],

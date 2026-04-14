@@ -37,7 +37,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apifinancetracker2"
       },
-      "lastPushTimeStamp": "2026-04-14T20:55:29.369Z",
+      "lastPushTimeStamp": "2026-04-14T21:23:10.824Z",
       "lastPushDirHash": "vBKWxUHpn9WRIxr0cuY1IFyCR9s="
     }
   },
@@ -71,7 +71,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/auth/financetracker2482cfa19-cloudformation-template.json",
         "logicalId": "authfinancetracker2482cfa19"
       },
-      "lastPushTimeStamp": "2026-04-14T20:55:29.639Z",
+      "lastPushTimeStamp": "2026-04-14T21:23:10.826Z",
       "output": {
         "UserPoolId": "us-east-1_sFxluPu3o",
         "AppClientIDWeb": "5tjedv1902bkpd51pq841pk87c",
@@ -89,7 +89,7 @@
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
-      "lastPushTimeStamp": "2026-04-14T20:55:29.639Z",
+      "lastPushTimeStamp": "2026-04-14T21:23:10.827Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
         "logicalId": "storages310def45a"
@@ -99,6 +99,22 @@
         "Region": "us-east-1"
       },
       "lastPushDirHash": "dFdBX7Zj6LbgMIJP+za4o449y0A="
+    }
+  },
+  "custom": {
+    "monthlyreport": {
+      "service": "customCDK",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/custom/monthlyreport-cloudformation-template.json",
+        "logicalId": "custommonthlyreport"
+      },
+      "lastPushTimeStamp": "2026-04-14T21:23:11.075Z",
+      "output": {
+        "MonthlyReportTopicArn": "arn:aws:sns:us-east-1:079385506759:amplify-financetracker2-main-ecd2b-custommonthlyreport-1ODLZESAI3Z3E-MonthlyReportTopic8D223100-hCD3uhGPjJIn",
+        "BudgetAlertTopicArn": "arn:aws:sns:us-east-1:079385506759:amplify-financetracker2-main-ecd2b-custommonthlyreport-1ODLZESAI3Z3E-BudgetAlertTopicF20DF526-qEamb6bGOzep"
+      },
+      "lastPushDirHash": "CpkZlX4CMjxZv5wPwVr3U0LMdHU="
     }
   }
 }

@@ -17,6 +17,12 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolName": "string"
     }
   },
+  "custom": {
+    "monthlyreport": {
+      "BudgetAlertTopicArn": "string",
+      "MonthlyReportTopicArn": "string"
+    }
+  },
   "storage": {
     "s310def45a": {
       "BucketName": "string",
