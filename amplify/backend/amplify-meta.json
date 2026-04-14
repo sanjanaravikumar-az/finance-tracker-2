@@ -101,5 +101,10 @@
       "lastPushDirHash": "dFdBX7Zj6LbgMIJP+za4o449y0A="
     }
   },
-  "custom": {}
+  "custom": {
+    "monthlyreport": {
+      "service": "customCDK",
+      "providerPlugin": "awscloudformation"
+    }
+  }
 }
