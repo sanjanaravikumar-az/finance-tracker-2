@@ -40,5 +40,33 @@
       "lastPushTimeStamp": "2026-04-14T20:38:37.416Z",
       "lastPushDirHash": "vBKWxUHpn9WRIxr0cuY1IFyCR9s="
     }
+  },
+  "auth": {
+    "financetracker2482cfa19": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      }
+    }
   }
 }
