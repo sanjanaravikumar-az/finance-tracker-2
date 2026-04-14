@@ -100,5 +100,11 @@
       },
       "lastPushDirHash": "dFdBX7Zj6LbgMIJP+za4o449y0A="
     }
+  },
+  "custom": {
+    "customfinance": {
+      "service": "customCDK",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
