@@ -37,8 +37,68 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apifinancetracker2"
       },
-      "lastPushTimeStamp": "2026-04-14T20:38:37.416Z",
+      "lastPushTimeStamp": "2026-04-14T20:55:29.369Z",
       "lastPushDirHash": "vBKWxUHpn9WRIxr0cuY1IFyCR9s="
+    }
+  },
+  "auth": {
+    "financetracker2482cfa19": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/auth/financetracker2482cfa19-cloudformation-template.json",
+        "logicalId": "authfinancetracker2482cfa19"
+      },
+      "lastPushTimeStamp": "2026-04-14T20:55:29.639Z",
+      "output": {
+        "UserPoolId": "us-east-1_sFxluPu3o",
+        "AppClientIDWeb": "5tjedv1902bkpd51pq841pk87c",
+        "AppClientID": "463384cpgoucuqe3mr5fglqkm3",
+        "IdentityPoolId": "us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:079385506759:userpool/us-east-1_sFxluPu3o",
+        "IdentityPoolName": "financetracker2482cfa19_identitypool_482cfa19__main",
+        "UserPoolName": "financetracker2482cfa19_userpool_482cfa19"
+      },
+      "lastPushDirHash": "XyX+3TnI07gIf6WNmpFVpOjZnxw="
+    }
+  },
+  "storage": {
+    "s310def45a": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2026-04-14T20:55:29.639Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages310def45a"
+      },
+      "output": {
+        "BucketName": "financetracker2360d09927a0346a8934cad9be891d5fbecd2b-main",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "dFdBX7Zj6LbgMIJP+za4o449y0A="
     }
   }
 }

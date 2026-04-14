@@ -1,28 +1,82 @@
-type Blog {
+type Transaction {
   id: ID!
-  name: String!
-  posts(filter: ModelPostFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelPostConnection
+  description: String!
+  amount: Float!
+  type: TransactionType!
+  category: String!
+  date: AWSDateTime!
+  receiptUrl: String
+  owner: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
 
-type Post {
-  id: ID!
-  title: String!
-  blog: Blog
-  comments(filter: ModelCommentFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCommentConnection
-  createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
-  blogPostsId: ID
+enum TransactionType {
+  INCOME
+  EXPENSE
 }
 
-type Comment {
+type Budget {
   id: ID!
-  post: Post
-  content: String!
+  category: String!
+  limit: Float!
+  month: String!
+  owner: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-  postCommentsId: ID
+}
+
+type FinancialSummary {
+  id: ID!
+  totalIncome: Float!
+  totalExpenses: Float!
+  balance: Float!
+  month: String!
+  owner: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type CalculatedSummary {
+  totalIncome: Float!
+  totalExpenses: Float!
+  balance: Float!
+  savingsRate: Float!
+}
+
+type NotificationResult {
+  success: Boolean!
+  message: String!
+}
+
+type TransactionConnection {
+  items: [Transaction]
+  nextToken: String
+}
+
+type Query {
+  calculateFinancialSummary: CalculatedSummary
+  getTransactionsByCategory(category: String!, limit: Int): TransactionConnection
+  getTransaction(id: ID!): Transaction
+  listTransactions(filter: ModelTransactionFilterInput, limit: Int, nextToken: String): ModelTransactionConnection
+  getBudget(id: ID!): Budget
+  listBudgets(filter: ModelBudgetFilterInput, limit: Int, nextToken: String): ModelBudgetConnection
+  getFinancialSummary(id: ID!): FinancialSummary
+  listFinancialSummaries(filter: ModelFinancialSummaryFilterInput, limit: Int, nextToken: String): ModelFinancialSummaryConnection
+}
+
+type Mutation {
+  sendMonthlyReport(email: String!): NotificationResult
+  sendBudgetAlert(email: String!, category: String!, exceeded: Float!): NotificationResult
+  createTransaction(input: CreateTransactionInput!, condition: ModelTransactionConditionInput): Transaction
+  updateTransaction(input: UpdateTransactionInput!, condition: ModelTransactionConditionInput): Transaction
+  deleteTransaction(input: DeleteTransactionInput!, condition: ModelTransactionConditionInput): Transaction
+  createBudget(input: CreateBudgetInput!, condition: ModelBudgetConditionInput): Budget
+  updateBudget(input: UpdateBudgetInput!, condition: ModelBudgetConditionInput): Budget
+  deleteBudget(input: DeleteBudgetInput!, condition: ModelBudgetConditionInput): Budget
+  createFinancialSummary(input: CreateFinancialSummaryInput!, condition: ModelFinancialSummaryConditionInput): FinancialSummary
+  updateFinancialSummary(input: UpdateFinancialSummaryInput!, condition: ModelFinancialSummaryConditionInput): FinancialSummary
+  deleteFinancialSummary(input: DeleteFinancialSummaryInput!, condition: ModelFinancialSummaryConditionInput): FinancialSummary
 }
 
 input ModelStringInput {
@@ -175,186 +229,225 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelBlogConnection {
-  items: [Blog]!
+type ModelTransactionConnection {
+  items: [Transaction]!
   nextToken: String
 }
 
-input ModelBlogFilterInput {
+input ModelTransactionTypeInput {
+  eq: TransactionType
+  ne: TransactionType
+}
+
+input ModelTransactionFilterInput {
   id: ModelIDInput
-  name: ModelStringInput
+  description: ModelStringInput
+  amount: ModelFloatInput
+  type: ModelTransactionTypeInput
+  category: ModelStringInput
+  date: ModelStringInput
+  receiptUrl: ModelStringInput
+  owner: ModelStringInput
   createdAt: ModelStringInput
   updatedAt: ModelStringInput
-  and: [ModelBlogFilterInput]
-  or: [ModelBlogFilterInput]
-  not: ModelBlogFilterInput
+  and: [ModelTransactionFilterInput]
+  or: [ModelTransactionFilterInput]
+  not: ModelTransactionFilterInput
 }
 
-type Query {
-  getBlog(id: ID!): Blog
-  listBlogs(filter: ModelBlogFilterInput, limit: Int, nextToken: String): ModelBlogConnection
-  getPost(id: ID!): Post
-  listPosts(filter: ModelPostFilterInput, limit: Int, nextToken: String): ModelPostConnection
-  getComment(id: ID!): Comment
-  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection
-}
-
-input ModelBlogConditionInput {
-  name: ModelStringInput
-  and: [ModelBlogConditionInput]
-  or: [ModelBlogConditionInput]
-  not: ModelBlogConditionInput
+input ModelTransactionConditionInput {
+  description: ModelStringInput
+  amount: ModelFloatInput
+  type: ModelTransactionTypeInput
+  category: ModelStringInput
+  date: ModelStringInput
+  receiptUrl: ModelStringInput
+  owner: ModelStringInput
+  and: [ModelTransactionConditionInput]
+  or: [ModelTransactionConditionInput]
+  not: ModelTransactionConditionInput
   createdAt: ModelStringInput
   updatedAt: ModelStringInput
 }
 
-input CreateBlogInput {
+input CreateTransactionInput {
   id: ID
-  name: String!
+  description: String!
+  amount: Float!
+  type: TransactionType!
+  category: String!
+  date: AWSDateTime!
+  receiptUrl: String
+  owner: String
 }
 
-input UpdateBlogInput {
+input UpdateTransactionInput {
   id: ID!
-  name: String
+  description: String
+  amount: Float
+  type: TransactionType
+  category: String
+  date: AWSDateTime
+  receiptUrl: String
+  owner: String
 }
 
-input DeleteBlogInput {
+input DeleteTransactionInput {
   id: ID!
 }
 
-type Mutation {
-  createBlog(input: CreateBlogInput!, condition: ModelBlogConditionInput): Blog
-  updateBlog(input: UpdateBlogInput!, condition: ModelBlogConditionInput): Blog
-  deleteBlog(input: DeleteBlogInput!, condition: ModelBlogConditionInput): Blog
-  createPost(input: CreatePostInput!, condition: ModelPostConditionInput): Post
-  updatePost(input: UpdatePostInput!, condition: ModelPostConditionInput): Post
-  deletePost(input: DeletePostInput!, condition: ModelPostConditionInput): Post
-  createComment(input: CreateCommentInput!, condition: ModelCommentConditionInput): Comment
-  updateComment(input: UpdateCommentInput!, condition: ModelCommentConditionInput): Comment
-  deleteComment(input: DeleteCommentInput!, condition: ModelCommentConditionInput): Comment
-}
-
-input ModelSubscriptionBlogFilterInput {
+input ModelSubscriptionTransactionFilterInput {
   id: ModelSubscriptionIDInput
-  name: ModelSubscriptionStringInput
+  description: ModelSubscriptionStringInput
+  amount: ModelSubscriptionFloatInput
+  type: ModelSubscriptionStringInput
+  category: ModelSubscriptionStringInput
+  date: ModelSubscriptionStringInput
+  receiptUrl: ModelSubscriptionStringInput
+  owner: ModelSubscriptionStringInput
   createdAt: ModelSubscriptionStringInput
   updatedAt: ModelSubscriptionStringInput
-  and: [ModelSubscriptionBlogFilterInput]
-  or: [ModelSubscriptionBlogFilterInput]
-  blogPostsId: ModelSubscriptionIDInput
+  and: [ModelSubscriptionTransactionFilterInput]
+  or: [ModelSubscriptionTransactionFilterInput]
 }
 
 type Subscription {
-  onCreateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["createBlog"])
-  onUpdateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["updateBlog"])
-  onDeleteBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["deleteBlog"])
-  onCreatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["createPost"])
-  onUpdatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["updatePost"])
-  onDeletePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["deletePost"])
-  onCreateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["createComment"])
-  onUpdateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["updateComment"])
-  onDeleteComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["deleteComment"])
+  onCreateTransaction(filter: ModelSubscriptionTransactionFilterInput): Transaction @aws_subscribe(mutations: ["createTransaction"])
+  onUpdateTransaction(filter: ModelSubscriptionTransactionFilterInput): Transaction @aws_subscribe(mutations: ["updateTransaction"])
+  onDeleteTransaction(filter: ModelSubscriptionTransactionFilterInput): Transaction @aws_subscribe(mutations: ["deleteTransaction"])
+  onCreateBudget(filter: ModelSubscriptionBudgetFilterInput): Budget @aws_subscribe(mutations: ["createBudget"])
+  onUpdateBudget(filter: ModelSubscriptionBudgetFilterInput): Budget @aws_subscribe(mutations: ["updateBudget"])
+  onDeleteBudget(filter: ModelSubscriptionBudgetFilterInput): Budget @aws_subscribe(mutations: ["deleteBudget"])
+  onCreateFinancialSummary(filter: ModelSubscriptionFinancialSummaryFilterInput): FinancialSummary @aws_subscribe(mutations: ["createFinancialSummary"])
+  onUpdateFinancialSummary(filter: ModelSubscriptionFinancialSummaryFilterInput): FinancialSummary @aws_subscribe(mutations: ["updateFinancialSummary"])
+  onDeleteFinancialSummary(filter: ModelSubscriptionFinancialSummaryFilterInput): FinancialSummary @aws_subscribe(mutations: ["deleteFinancialSummary"])
 }
 
-type ModelPostConnection {
-  items: [Post]!
+type ModelBudgetConnection {
+  items: [Budget]!
   nextToken: String
 }
 
-input ModelPostFilterInput {
+input ModelBudgetFilterInput {
   id: ModelIDInput
-  title: ModelStringInput
+  category: ModelStringInput
+  limit: ModelFloatInput
+  month: ModelStringInput
+  owner: ModelStringInput
   createdAt: ModelStringInput
   updatedAt: ModelStringInput
-  and: [ModelPostFilterInput]
-  or: [ModelPostFilterInput]
-  not: ModelPostFilterInput
-  blogPostsId: ModelIDInput
+  and: [ModelBudgetFilterInput]
+  or: [ModelBudgetFilterInput]
+  not: ModelBudgetFilterInput
 }
 
-input ModelPostConditionInput {
-  title: ModelStringInput
-  and: [ModelPostConditionInput]
-  or: [ModelPostConditionInput]
-  not: ModelPostConditionInput
+input ModelBudgetConditionInput {
+  category: ModelStringInput
+  limit: ModelFloatInput
+  month: ModelStringInput
+  owner: ModelStringInput
+  and: [ModelBudgetConditionInput]
+  or: [ModelBudgetConditionInput]
+  not: ModelBudgetConditionInput
   createdAt: ModelStringInput
   updatedAt: ModelStringInput
-  blogPostsId: ModelIDInput
 }
 
-input CreatePostInput {
+input CreateBudgetInput {
   id: ID
-  title: String!
-  blogPostsId: ID
+  category: String!
+  limit: Float!
+  month: String!
+  owner: String
 }
 
-input UpdatePostInput {
+input UpdateBudgetInput {
   id: ID!
-  title: String
-  blogPostsId: ID
+  category: String
+  limit: Float
+  month: String
+  owner: String
 }
 
-input DeletePostInput {
+input DeleteBudgetInput {
   id: ID!
 }
 
-input ModelSubscriptionPostFilterInput {
+input ModelSubscriptionBudgetFilterInput {
   id: ModelSubscriptionIDInput
-  title: ModelSubscriptionStringInput
+  category: ModelSubscriptionStringInput
+  limit: ModelSubscriptionFloatInput
+  month: ModelSubscriptionStringInput
+  owner: ModelSubscriptionStringInput
   createdAt: ModelSubscriptionStringInput
   updatedAt: ModelSubscriptionStringInput
-  and: [ModelSubscriptionPostFilterInput]
-  or: [ModelSubscriptionPostFilterInput]
-  postCommentsId: ModelSubscriptionIDInput
+  and: [ModelSubscriptionBudgetFilterInput]
+  or: [ModelSubscriptionBudgetFilterInput]
 }
 
-type ModelCommentConnection {
-  items: [Comment]!
+type ModelFinancialSummaryConnection {
+  items: [FinancialSummary]!
   nextToken: String
 }
 
-input ModelCommentFilterInput {
+input ModelFinancialSummaryFilterInput {
   id: ModelIDInput
-  content: ModelStringInput
+  totalIncome: ModelFloatInput
+  totalExpenses: ModelFloatInput
+  balance: ModelFloatInput
+  month: ModelStringInput
+  owner: ModelStringInput
   createdAt: ModelStringInput
   updatedAt: ModelStringInput
-  and: [ModelCommentFilterInput]
-  or: [ModelCommentFilterInput]
-  not: ModelCommentFilterInput
-  postCommentsId: ModelIDInput
+  and: [ModelFinancialSummaryFilterInput]
+  or: [ModelFinancialSummaryFilterInput]
+  not: ModelFinancialSummaryFilterInput
 }
 
-input ModelCommentConditionInput {
-  content: ModelStringInput
-  and: [ModelCommentConditionInput]
-  or: [ModelCommentConditionInput]
-  not: ModelCommentConditionInput
+input ModelFinancialSummaryConditionInput {
+  totalIncome: ModelFloatInput
+  totalExpenses: ModelFloatInput
+  balance: ModelFloatInput
+  month: ModelStringInput
+  owner: ModelStringInput
+  and: [ModelFinancialSummaryConditionInput]
+  or: [ModelFinancialSummaryConditionInput]
+  not: ModelFinancialSummaryConditionInput
   createdAt: ModelStringInput
   updatedAt: ModelStringInput
-  postCommentsId: ModelIDInput
 }
 
-input CreateCommentInput {
+input CreateFinancialSummaryInput {
   id: ID
-  content: String!
-  postCommentsId: ID
+  totalIncome: Float!
+  totalExpenses: Float!
+  balance: Float!
+  month: String!
+  owner: String
 }
 
-input UpdateCommentInput {
+input UpdateFinancialSummaryInput {
   id: ID!
-  content: String
-  postCommentsId: ID
+  totalIncome: Float
+  totalExpenses: Float
+  balance: Float
+  month: String
+  owner: String
 }
 
-input DeleteCommentInput {
+input DeleteFinancialSummaryInput {
   id: ID!
 }
 
-input ModelSubscriptionCommentFilterInput {
+input ModelSubscriptionFinancialSummaryFilterInput {
   id: ModelSubscriptionIDInput
-  content: ModelSubscriptionStringInput
+  totalIncome: ModelSubscriptionFloatInput
+  totalExpenses: ModelSubscriptionFloatInput
+  balance: ModelSubscriptionFloatInput
+  month: ModelSubscriptionStringInput
+  owner: ModelSubscriptionStringInput
   createdAt: ModelSubscriptionStringInput
   updatedAt: ModelSubscriptionStringInput
-  and: [ModelSubscriptionCommentFilterInput]
-  or: [ModelSubscriptionCommentFilterInput]
+  and: [ModelSubscriptionFinancialSummaryFilterInput]
+  or: [ModelSubscriptionFinancialSummaryFilterInput]
 }
