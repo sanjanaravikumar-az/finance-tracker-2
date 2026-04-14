@@ -300,6 +300,15 @@
         }
       }
     },
+    "customcustomfinance": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/custom/customfinance-cloudformation-template.json",
+        "Parameters": {
+          "env": "main"
+        }
+      }
+    },
     "UpdateRolesWithIDPFunction": {
       "DependsOn": [
         "AuthRole",

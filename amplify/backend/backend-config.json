@@ -47,12 +47,7 @@
       "service": "Cognito"
     }
   },
-  "custom": {
-    "customfinance": {
-      "providerPlugin": "awscloudformation",
-      "service": "customCDK"
-    }
-  },
+  "custom": {},
   "storage": {
     "s310def45a": {
       "dependsOn": [],
