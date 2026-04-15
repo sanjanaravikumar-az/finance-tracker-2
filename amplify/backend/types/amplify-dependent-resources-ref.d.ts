@@ -23,6 +23,15 @@ export type AmplifyDependentResourcesAttributes = {
       "MonthlyReportTopicArn": "string"
     }
   },
+  "function": {
+    "financetracker2ceb6de29": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    }
+  },
   "storage": {
     "s310def45a": {
       "BucketName": "string",

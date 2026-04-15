@@ -467,7 +467,7 @@
               {
                 "Ref": "TransactionTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -562,7 +562,7 @@
               {
                 "Ref": "TransactionTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -693,7 +693,7 @@
               {
                 "Ref": "TransactionTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -824,7 +824,7 @@
               {
                 "Ref": "TransactionTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -919,7 +919,7 @@
               {
                 "Ref": "TransactionTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1004,7 +1004,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1044,7 +1044,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1084,7 +1084,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:dad597d1-e3d0-47c9-8241-4789411253d5\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"financetracker2ceb6de29-main\"]))\n$util.toJson({})"
             ]
           ]
         },

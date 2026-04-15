@@ -37,8 +37,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apifinancetracker2"
       },
-      "lastPushTimeStamp": "2026-04-14T21:23:10.824Z",
-      "lastPushDirHash": "vBKWxUHpn9WRIxr0cuY1IFyCR9s="
+      "lastPushTimeStamp": "2026-04-14T21:43:31.871Z",
+      "lastPushDirHash": "3KvIyj2PSJG+96C9z8yXuHbtxS0="
     }
   },
   "auth": {
@@ -71,7 +71,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/auth/financetracker2482cfa19-cloudformation-template.json",
         "logicalId": "authfinancetracker2482cfa19"
       },
-      "lastPushTimeStamp": "2026-04-14T21:23:10.826Z",
+      "lastPushTimeStamp": "2026-04-14T21:43:31.417Z",
       "output": {
         "UserPoolId": "us-east-1_sFxluPu3o",
         "AppClientIDWeb": "5tjedv1902bkpd51pq841pk87c",
@@ -89,7 +89,7 @@
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
-      "lastPushTimeStamp": "2026-04-14T21:23:10.827Z",
+      "lastPushTimeStamp": "2026-04-14T21:43:31.418Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
         "logicalId": "storages310def45a"
@@ -109,12 +109,49 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/custom/monthlyreport-cloudformation-template.json",
         "logicalId": "custommonthlyreport"
       },
-      "lastPushTimeStamp": "2026-04-14T21:23:11.075Z",
+      "lastPushTimeStamp": "2026-04-14T21:43:31.422Z",
       "output": {
         "MonthlyReportTopicArn": "arn:aws:sns:us-east-1:079385506759:amplify-financetracker2-main-ecd2b-custommonthlyreport-1ODLZESAI3Z3E-MonthlyReportTopic8D223100-hCD3uhGPjJIn",
         "BudgetAlertTopicArn": "arn:aws:sns:us-east-1:079385506759:amplify-financetracker2-main-ecd2b-custommonthlyreport-1ODLZESAI3Z3E-BudgetAlertTopicF20DF526-qEamb6bGOzep"
       },
       "lastPushDirHash": "CpkZlX4CMjxZv5wPwVr3U0LMdHU="
+    }
+  },
+  "function": {
+    "financetracker2ceb6de29": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "financetracker2",
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2026-04-14T21:43:31.871Z",
+      "lastBuildTimeStamp": "2026-04-14T21:40:24.415Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2026-04-14T21:40:24.455Z",
+      "distZipFilename": "financetracker2ceb6de29-343872616e4e73454775-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-financetracker2-main-ecd2b-deployment",
+        "s3Key": "amplify-builds/financetracker2ceb6de29-343872616e4e73454775-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/function/financetracker2ceb6de29-cloudformation-template.json",
+        "logicalId": "functionfinancetracker2ceb6de29"
+      },
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::079385506759:role/financetracker2LambdaRole96a64165-main",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:079385506759:function:financetracker2ceb6de29-main",
+        "Name": "financetracker2ceb6de29-main",
+        "LambdaExecutionRole": "financetracker2LambdaRole96a64165-main"
+      },
+      "lastPushDirHash": "stuNY9n86EoRYGDSZhPa6YUQnUA="
     }
   }
 }

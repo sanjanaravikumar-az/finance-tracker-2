@@ -23,6 +23,12 @@
       },
       "custom": {
         "monthlyreport": {}
+      },
+      "function": {
+        "financetracker2ceb6de29": {
+          "deploymentBucketName": "amplify-financetracker2-main-ecd2b-deployment",
+          "s3Key": "amplify-builds/financetracker2ceb6de29-343872616e4e73454775-build.zip"
+        }
       }
     }
   }
