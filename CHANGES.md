@@ -93,3 +93,8 @@ All changes were mirrored in `amplify/#current-cloud-backend/` to keep local sta
 - Amplify Gen 2 uses esbuild to bundle Lambda functions. esbuild failed with `Could not resolve "@aws-sdk/client-dynamodb"` (and similar for `lib-dynamodb` and `client-sns`).
 - These packages are pre-installed in the Node.js 22 Lambda runtime and don't need to be bundled.
 - Added `bundling.externalPackages` to `defineFunction()` in `resource.ts` to exclude them from the bundle.
+
+### 11. Updated TypeScript Version (`package.json`)
+- `package.json` had `"typescript": "^4.9.5"` but the tsconfig files used TS 5+ features (`es2023` target, `bundler` moduleResolution, `verbatimModuleSyntax`, `erasableSyntaxOnly`).
+- The Amplify build environment installed TS 4.9.5 which doesn't support these options, causing frontend build failures.
+- Updated to `"typescript": "~5.8.0"` (initially tried 5.7 but `erasableSyntaxOnly` requires 5.8+).
