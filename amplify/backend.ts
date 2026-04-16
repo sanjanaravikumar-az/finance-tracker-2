@@ -5,6 +5,7 @@ import { cdkStack } from './custom/monthlyreport/resource';
 import { financetracker2ceb6de29 } from './function/financetracker2ceb6de29/resource';
 import { defineBackend } from '@aws-amplify/backend';
 import { Duration } from 'aws-cdk-lib';
+import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
 
 const backend = defineBackend({
   auth,
@@ -66,6 +67,12 @@ backend.data.resources.tables['Transaction'].grant(
   'dynamodb:PartiQLUpdate',
   'dynamodb:Delete*',
   'dynamodb:PartiQLDelete'
+);
+backend.financetracker2ceb6de29.resources.lambda.addToRolePolicy(
+  new PolicyStatement({
+    actions: ['sns:Publish'],
+    resources: ['*'],
+  })
 );
 const s3Bucket = backend.storage.resources.cfnResources.cfnBucket;
 // Use this bucket name post refactor
