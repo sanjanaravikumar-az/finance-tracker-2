@@ -8,7 +8,7 @@ export const financetracker2ceb6de29 = defineFunction({
   timeoutSeconds: 25,
   memoryMB: 128,
   bundling: {
-    externalPackages: [
+    nodeModules: [
       '@aws-sdk/client-dynamodb',
       '@aws-sdk/lib-dynamodb',
       '@aws-sdk/client-sns',
