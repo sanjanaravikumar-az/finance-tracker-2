@@ -38,19 +38,19 @@ type FinancialSummary @model {
 }
 
 # Custom query to calculate financial summary using Lambda
-type CalculatedSummary {
+type CalculatedSummary @auth(rules: [{ allow: public }]) {
   totalIncome: Float!
   totalExpenses: Float!
   balance: Float!
   savingsRate: Float!
 }
 
-type NotificationResult {
+type NotificationResult @auth(rules: [{ allow: public }]) {
   success: Boolean!
   message: String!
 }
 
-type TransactionConnection {
+type TransactionConnection @auth(rules: [{ allow: public }]) {
   items: [Transaction]
   nextToken: String
 }
