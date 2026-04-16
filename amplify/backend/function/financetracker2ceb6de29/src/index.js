@@ -76,7 +76,7 @@ async function calculateSummaryFromDB() {
   console.log('calculateSummaryFromDB called');
 
   // Try to get table name from environment variable
-  let tableName = process.env.API_FINANCETRACKER_TRANSACTIONTABLE_NAME;
+  let tableName = process.env.API_FINANCETRACKER2_TRANSACTIONTABLE_NAME;
   console.log('Table name from env:', tableName);
 
   // If table name has NONE, we need to find the actual API ID
@@ -173,7 +173,7 @@ async function sendMonthlyReport(args) {
       throw new Error('Monthly report topic ARN not configured');
     }
 
-    const tableName = process.env.API_FINANCETRACKER_TRANSACTIONTABLE_NAME;
+    const tableName = process.env.API_FINANCETRACKER2_TRANSACTIONTABLE_NAME;
     console.log('Table name:', tableName);
 
     // Get financial summary from DynamoDB
@@ -275,7 +275,7 @@ async function sendBudgetAlert(args) {
       throw new Error('Budget alert topic ARN not configured');
     }
 
-    const tableName = process.env.API_FINANCETRACKER_TRANSACTIONTABLE_NAME;
+    const tableName = process.env.API_FINANCETRACKER2_TRANSACTIONTABLE_NAME;
 
     // Get category spending from DynamoDB
     const result = await dynamodb.send(
