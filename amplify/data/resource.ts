@@ -56,13 +56,13 @@ type TransactionConnection {
 }
 
 type Query {
-  calculateFinancialSummary: CalculatedSummary @function(name: "financetracker2ceb6de29-main")
+  calculateFinancialSummary: CalculatedSummary @function(name: "financetracker2ceb6de29-gen2-main") @auth(rules: [{ allow: public }])
   getTransactionsByCategory(category: String!, limit: Int): TransactionConnection
 }
 
 type Mutation {
-  sendMonthlyReport(email: String!): NotificationResult @function(name: "financetracker2ceb6de29-main")
-  sendBudgetAlert(email: String!, category: String!, exceeded: Float!): NotificationResult @function(name: "financetracker2ceb6de29-main")
+  sendMonthlyReport(email: String!): NotificationResult @function(name: "financetracker2ceb6de29-gen2-main") @auth(rules: [{ allow: public }])
+  sendBudgetAlert(email: String!, category: String!, exceeded: Float!): NotificationResult @function(name: "financetracker2ceb6de29-gen2-main") @auth(rules: [{ allow: public }])
 }`;
 
 export const data = defineData({
