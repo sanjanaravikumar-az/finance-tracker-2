@@ -1,7 +1,0 @@
-{
-    "AppSyncApiName": "financetracker2",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false,
-    "S3DeploymentBucket": "amplify-financetracker2-main-ecd2b-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/d1439d7900d871f181d3b1533f88b8c469b06be2"
-}

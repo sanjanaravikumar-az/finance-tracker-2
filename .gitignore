@@ -6,12 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
 node_modules
 dist
 dist-ssr
 *.local
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,21 +20,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-#amplify-do-not-edit-begin
-amplify/.config/local-*
-amplify/logs
-amplify/mock-data
-amplify/mock-api-resources
-amplify/backend/.temp
-amplify/#current-cloud-backend
-dist/
-node_modules/
-awsconfiguration.json
-amplifyconfiguration.dart
-amplify-build-config.json
-amplify-gradle-config.json
-amplifytools.xcconfig
-.secret-*
-**.sample
-#amplify-do-not-edit-end
+# amplify
+.amplify
+amplify_outputs*
+amplifyconfiguration*
+aws-exports*
+build
