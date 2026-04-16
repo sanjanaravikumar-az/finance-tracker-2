@@ -314,6 +314,8 @@
       "Properties": {
         "TemplateURL": "https://s3.amazonaws.com/amplify-financetracker2-main-ecd2b-deployment/amplify-cfn-templates/function/financetracker2ceb6de29-cloudformation-template.json",
         "Parameters": {
+          "lambdaLayers": "",
+          "dependsOn": "[object Object]",
           "deploymentBucketName": "amplify-financetracker2-main-ecd2b-deployment",
           "s3Key": "amplify-builds/financetracker2ceb6de29-343872616e4e73454775-build.zip",
           "apifinancetracker2GraphQLAPIIdOutput": {

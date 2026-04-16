@@ -69,24 +69,6 @@
       "service": "Lambda"
     }
   },
-  "parameters": {
-    "AMPLIFY_function_financetracker2ceb6de29_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "financetracker2ceb6de29"
-        }
-      ]
-    },
-    "AMPLIFY_function_financetracker2ceb6de29_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "financetracker2ceb6de29"
-        }
-      ]
-    }
-  },
   "storage": {
     "s310def45a": {
       "dependsOn": [],
