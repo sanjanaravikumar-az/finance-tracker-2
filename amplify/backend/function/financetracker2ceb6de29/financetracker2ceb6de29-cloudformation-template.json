@@ -19,6 +19,20 @@
     "apifinancetracker2GraphQLAPIIdOutput": {
       "Type": "String",
       "Default": "apifinancetracker2GraphQLAPIIdOutput"
+    },
+    "custommonthlyreportBudgetAlertTopicArn": {
+      "Type": "String"
+    },
+    "custommonthlyreportMonthlyReportTopicArn": {
+      "Type": "String"
+    },
+    "dependsOn": {
+      "Type": "String",
+      "Default": ""
+    },
+    "lambdaLayers": {
+      "Type": "String",
+      "Default": ""
     }
   },
   "Conditions": {
@@ -102,6 +116,12 @@
             },
             "API_FINANCETRACKER2_GRAPHQLAPIIDOUTPUT": {
               "Ref": "apifinancetracker2GraphQLAPIIdOutput"
+            },
+            "BUDGET_ALERT_TOPIC_ARN": {
+              "Ref": "custommonthlyreportBudgetAlertTopicArn"
+            },
+            "MONTHLY_REPORT_TOPIC_ARN": {
+              "Ref": "custommonthlyreportMonthlyReportTopicArn"
             }
           }
         },

@@ -63,6 +63,14 @@
           ],
           "category": "api",
           "resourceName": "financetracker2"
+        },
+        {
+          "attributes": [
+            "BudgetAlertTopicArn",
+            "MonthlyReportTopicArn"
+          ],
+          "category": "custom",
+          "resourceName": "monthlyreport"
         }
       ],
       "providerPlugin": "awscloudformation",

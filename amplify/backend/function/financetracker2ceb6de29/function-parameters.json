@@ -8,5 +8,13 @@
         "delete"
       ]
     }
-  }
+  },
+  "lambdaLayers": [],
+  "dependsOn": [
+    {
+      "category": "custom",
+      "resourceName": "monthlyreport",
+      "attributes": ["BudgetAlertTopicArn", "MonthlyReportTopicArn"]
+    }
+  ]
 }

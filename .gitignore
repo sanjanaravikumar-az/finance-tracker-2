@@ -29,6 +29,7 @@ amplify/logs
 amplify/mock-data
 amplify/mock-api-resources
 amplify/backend/.temp
+amplify/#current-cloud-backend
 dist/
 node_modules/
 awsconfiguration.json
