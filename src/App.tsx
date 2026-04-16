@@ -295,6 +295,7 @@ function App() {
       // Call Lambda function via GraphQL query (Lambda reads from DynamoDB)
       const result: any = await client.graphql({
         query: calculateFinancialSummaryQuery,
+        authMode: 'apiKey',
       });
       setSummary(result.data.calculateFinancialSummary);
     } catch (error) {
@@ -344,6 +345,7 @@ function App() {
       const result: any = await client.graphql({
         query: sendMonthlyReportMutation,
         variables: { email: userEmail },
+        authMode: 'apiKey',
       });
 
       console.log('Monthly report result:', result);
@@ -384,6 +386,7 @@ function App() {
       const result: any = await client.graphql({
         query: sendBudgetAlertMutation,
         variables: { email: userEmail, category: alertCategory, exceeded },
+        authMode: 'apiKey',
       });
 
       if (result.data.sendBudgetAlert.success) {
