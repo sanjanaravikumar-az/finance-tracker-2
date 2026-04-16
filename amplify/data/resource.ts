@@ -38,19 +38,19 @@ type FinancialSummary @model {
 }
 
 # Custom query to calculate financial summary using Lambda
-type CalculatedSummary {
+type CalculatedSummary @aws_api_key {
   totalIncome: Float!
   totalExpenses: Float!
   balance: Float!
   savingsRate: Float!
 }
 
-type NotificationResult {
+type NotificationResult @aws_api_key {
   success: Boolean!
   message: String!
 }
 
-type TransactionConnection {
+type TransactionConnection @aws_api_key {
   items: [Transaction]
   nextToken: String
 }
