@@ -68,3 +68,28 @@ Naming convention: `{category}{resourceName}{attribute}` → `custommonthlyrepor
 **e) `parameters.json`** — cleared to `{}` (this file is for static parameter overrides, not for `dependsOn`/`lambdaLayers` metadata).
 
 All changes were mirrored in `amplify/#current-cloud-backend/` to keep local state in sync.
+
+### 6. Gitignored `amplify/#current-cloud-backend`
+- This directory is auto-managed by the Amplify CLI after each successful push/pull.
+- It was being tracked in git, causing manual sync issues. Added to `.gitignore` and removed from git tracking via `git rm -r --cached`.
+
+### 7. Fixed DynamoDB Table Name Env Var Typo (`index.js`)
+- Lambda code referenced `process.env.API_FINANCETRACKER_TRANSACTIONTABLE_NAME` (missing the `2`).
+- Corrected to `process.env.API_FINANCETRACKER2_TRANSACTIONTABLE_NAME` in all three functions: `calculateSummaryFromDB`, `sendMonthlyReport`, and `sendBudgetAlert`.
+- This caused a runtime error: `Value null at 'tableName' failed to satisfy constraint: Member must not be null`.
+
+### 8. Re-triggered SNS Subscription Confirmations
+- After the SNS topics were recreated with auto-generated names, the email subscriptions were stuck in `PendingConfirmation` because the original confirmation emails had expired.
+- Re-triggered via `aws sns subscribe` for both topics.
+
+## 2026-04-16 (Gen 2 Branch — Post Migration)
+
+### 9. Changed `npm ci` to `npm install` in `amplify.yml`
+- The Amplify build environment's npm version resolves bundled transitive dependencies differently than the local npm (v10.8.2).
+- `npm ci` requires an exact lock file match and kept failing with `Missing: fast-xml-parser@4.4.1 from lock file` and similar errors.
+- Switched both backend and frontend install phases to `npm install` which is more tolerant of lock file differences.
+
+### 10. Marked AWS SDK Packages as External in Lambda Bundling (`resource.ts`)
+- Amplify Gen 2 uses esbuild to bundle Lambda functions. esbuild failed with `Could not resolve "@aws-sdk/client-dynamodb"` (and similar for `lib-dynamodb` and `client-sns`).
+- These packages are pre-installed in the Node.js 22 Lambda runtime and don't need to be bundled.
+- Added `bundling.externalPackages` to `defineFunction()` in `resource.ts` to exclude them from the bundle.

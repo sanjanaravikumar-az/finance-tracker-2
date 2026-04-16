@@ -7,13 +7,6 @@ export const financetracker2ceb6de29 = defineFunction({
   name: `financetracker2ceb6de29-${branchName}`,
   timeoutSeconds: 25,
   memoryMB: 128,
-  bundling: {
-    nodeModules: [
-      '@aws-sdk/client-dynamodb',
-      '@aws-sdk/lib-dynamodb',
-      '@aws-sdk/client-sns',
-    ],
-  },
   environment: {
     BUDGET_ALERT_TOPIC_ARN:
       'arn:aws:sns:us-east-1:079385506759:amplify-financetracker2-main-ecd2b-custommonthlyreport-1ODLZESAI3Z3E-BudgetAlertTopicF20DF526-qEamb6bGOzep',
